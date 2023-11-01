@@ -1,0 +1,29 @@
+version: '3.4'
+services:
+
+
+  integration_service:
+    build:
+      context: ./
+    container_name: integration_service
+    environment:
+      TZ: ${TZ}
+      FACILITY_NAME: integration_service
+      ENVIRONMENT: docker
+      DISABLE_SENTRY: "true"
+      LOG_FILENAME: "${CONTAINER_LOG_DIRECTORY}/integration-integration.log"
+    ports:
+      - 8000:8000
+    user: ${CURRENT_USER_ID}:${CURRENT_GROUP_ID}
+    restart: on-failure
+    volumes:
+      - logs:${CONTAINER_LOG_DIRECTORY}
+
+
+volumes:
+  logs:
+    driver: local
+    driver_opts:
+      type: 'none'
+      o: 'bind'
+      device: ${HOST_LOG_DIRECTORY}

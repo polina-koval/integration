@@ -1,0 +1,16 @@
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends wait-for-it
+
+RUN mkdir -p /var/log/
+
+
+WORKDIR /app
+
+COPY requirements.txt .
+COPY requirements_dev.txt .
+RUN pip3 install --default-timeout=100 -r requirements_dev.txt --no-cache-dir
+
+COPY . .
+
+ENTRYPOINT ["python3", "-m", "pytest"]
