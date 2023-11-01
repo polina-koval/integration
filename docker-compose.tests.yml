@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+
+  integration_service_test:
+    build:
+      context: ./
+      dockerfile: Dockerfile.test
+    container_name: integration_service_test
+    environment:
+      TZ: ${TZ}
+      ENVIRONMENT: test
+      DISABLE_SENTRY: "true"
+    user: ${CURRENT_USER_ID}:${CURRENT_GROUP_ID}
+    env_file:
+      - config/test.env

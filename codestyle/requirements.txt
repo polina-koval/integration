@@ -1,0 +1,19 @@
+appdirs==1.4.4
+attrs==23.1.0
+black==23.10.1
+click==8.1.7
+flake8==6.1.0
+flake8-black==0.3.6
+flake8-builtins==2.1.0
+flake8-commas==2.1.0
+flake8-debugger==4.1.2
+flake8-mutable==1.2.0
+flake8-quotes==3.3.2
+flake8-blind-except==0.2.1
+pep8-naming==0.13.3
+pathspec==0.11.2
+pycodestyle==2.11.1
+pyflakes==3.1.0
+regex==2023.10.3
+toml==0.10.2
+# typed-ast==1.5.5
